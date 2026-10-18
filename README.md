@@ -2,6 +2,18 @@
 
 לקוח לאתר הזמנת הכרטיסים לאירועים עירוניים. מדבר עם השרת ב-repository `city-tickets-server`.
 
+## כתובות חיות
+
+| רכיב | כתובת |
+|---|---|
+| אתר (לקוח) | <https://citytickets-client.onrender.com> |
+| שרת (API) | <https://citytickets-api.onrender.com> |
+| תיעוד Swagger | <https://citytickets-api.onrender.com/swagger> |
+| repository של השרת (ההסבר המלא) | <https://github.com/00668nb-oss/city-tickets-server> |
+
+> **שימו לב:** השרת מאוחסן בשכבה החינמית של Render, ו"נרדם" אחרי כמה דקות ללא בקשות.
+> הטעינה הראשונה אחרי שינה עשויה לקחת כדקה. זו התנהגות צפויה ולא תקלה.
+
 ## מסכים
 
 - **רשימת אירועים** – חיפוש, סינון לפי קטגוריה ותגית, ודפדוף עם הכפתורים "הקודם" ו"הבא" (הדפדוף נעשה בשרת).
