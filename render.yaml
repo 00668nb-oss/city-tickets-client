@@ -1,0 +1,16 @@
+# Render Blueprint ללקוח: אתר סטטי (Static Site) שנבנה מ-React
+services:
+  - type: web
+    name: citytickets-client
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      # כתובת השרת ב-Render, בלי / בסוף. למלא ידנית (למשל https://citytickets-api.onrender.com)
+      - key: VITE_API_URL
+        sync: false
+    routes:
+      # האתר משתמש ב-react-router. בלי הכלל הזה, רענון בכתובת כמו /orders מחזיר 404
+      - type: rewrite
+        source: /*
+        destination: /index.html
