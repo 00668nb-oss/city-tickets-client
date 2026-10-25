@@ -27,7 +27,7 @@ export default function LoginPage() {
 
   return (
     <form className="card form" onSubmit={handleSubmit}>
-      <h1>התחברות</h1>
+      <h1>ברוכה השבה 👋</h1>
       {error && <p className="error">{error}</p>}
       <label>
         אימייל

@@ -27,7 +27,7 @@ export default function RegisterPage() {
 
   return (
     <form className="card form" onSubmit={handleSubmit}>
-      <h1>הרשמה</h1>
+      <h1>מצטרפים לחגיגה 🎉</h1>
       {error && <p className="error">{error}</p>}
       <label>
         שם מלא
