@@ -637,6 +637,11 @@ select:focus {
   font-weight: 600;
 }
 
+.session.past {
+  opacity: 0.6;
+  filter: grayscale(0.6);
+}
+
 .session-info p {
   margin: 4px 0;
 }

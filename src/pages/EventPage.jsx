@@ -52,7 +52,7 @@ function SessionRow({ session, loggedIn, onPurchased, onConflict, index }) {
   }
 
   return (
-    <li className="card session" style={{ animationDelay: `${index * 80}ms` }}>
+    <li className={started ? 'card session past' : 'card session'} style={{ animationDelay: `${index * 80}ms` }}>
       {celebrate && <Confetti onDone={() => setCelebrate(false)} />}
 
       <div className="date-badge">
@@ -65,16 +65,22 @@ function SessionRow({ session, loggedIn, onPurchased, onConflict, index }) {
         <p className="muted">
           📍 {session.location} · <span className="price">{session.price} ₪</span> לכרטיס
         </p>
-        <div className="meter" role="progressbar" aria-valuenow={soldPercent} aria-valuemin={0} aria-valuemax={100}>
-          <div className={meterClass} style={{ width: `${soldPercent}%` }} />
-        </div>
-        <p className={almostFull || soldOut ? 'seats-text hot' : 'seats-text'}>
-          {soldOut
-            ? 'אזלו הכרטיסים 😢'
-            : almostFull
-              ? `🔥 נשארו רק ${session.seatsAvailable} מקומות!`
-              : `מקומות פנויים: ${session.seatsAvailable} מתוך ${session.capacity}`}
-        </p>
+        {started ? (
+          <p className="seats-text">⏰ המועד עבר</p>
+        ) : (
+          <>
+            <div className="meter" role="progressbar" aria-valuenow={soldPercent} aria-valuemin={0} aria-valuemax={100}>
+              <div className={meterClass} style={{ width: `${soldPercent}%` }} />
+            </div>
+            <p className={almostFull || soldOut ? 'seats-text hot' : 'seats-text'}>
+              {soldOut
+                ? 'אזלו הכרטיסים 😢'
+                : almostFull
+                  ? `🔥 נשארו רק ${session.seatsAvailable} מקומות!`
+                  : `מקומות פנויים: ${session.seatsAvailable} מתוך ${session.capacity}`}
+            </p>
+          </>
+        )}
       </div>
 
       {!started && !soldOut && (
@@ -99,7 +105,6 @@ function SessionRow({ session, loggedIn, onPurchased, onConflict, index }) {
           )}
         </div>
       )}
-      {started && <p className="muted">המועד עבר</p>}
 
       {message && <p className={`session-message ${message.type}`}>{message.text}</p>}
     </li>
